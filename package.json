@@ -1,0 +1,21 @@
+{
+  "name": "jeopardy-game",
+  "version": "1.0.0",
+  "description": "A fully functioning, themed, and animated Jeopardy game with multiplayer support",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm install && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "start": "cd server && npm start"
+  },
+  "keywords": ["jeopardy", "game", "multiplayer"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

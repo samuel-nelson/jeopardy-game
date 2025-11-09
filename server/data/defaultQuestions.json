@@ -1,0 +1,213 @@
+{
+  "id": "default",
+  "name": "Default Jeopardy Questions",
+  "isDefault": true,
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "World History",
+      "questions": [
+        {
+          "id": "q1-1",
+          "question": "This ancient wonder of the world was located in Alexandria, Egypt",
+          "answer": "What is the Lighthouse of Alexandria?",
+          "value": 200,
+          "answered": false
+        },
+        {
+          "id": "q1-2",
+          "question": "This war began in 1914 and ended in 1918",
+          "answer": "What is World War I?",
+          "value": 400,
+          "answered": false
+        },
+        {
+          "id": "q1-3",
+          "question": "This Roman emperor was assassinated on the Ides of March",
+          "answer": "Who is Julius Caesar?",
+          "value": 600,
+          "answered": false
+        },
+        {
+          "id": "q1-4",
+          "question": "This wall was built to separate East and West Berlin",
+          "answer": "What is the Berlin Wall?",
+          "value": 800,
+          "answered": false
+        },
+        {
+          "id": "q1-5",
+          "question": "This empire fell in 1453 when Constantinople was captured",
+          "answer": "What is the Byzantine Empire?",
+          "value": 1000,
+          "answered": false
+        }
+      ]
+    },
+    {
+      "id": "cat2",
+      "name": "Science & Nature",
+      "questions": [
+        {
+          "id": "q2-1",
+          "question": "This is the closest planet to the Sun",
+          "answer": "What is Mercury?",
+          "value": 200,
+          "answered": false
+        },
+        {
+          "id": "q2-2",
+          "question": "This process allows plants to convert sunlight into energy",
+          "answer": "What is photosynthesis?",
+          "value": 400,
+          "answered": false
+        },
+        {
+          "id": "q2-3",
+          "question": "This is the chemical symbol for gold",
+          "answer": "What is Au?",
+          "value": 600,
+          "answered": false
+        },
+        {
+          "id": "q2-4",
+          "question": "This is the speed of light in a vacuum",
+          "answer": "What is 299,792,458 meters per second?",
+          "value": 800,
+          "answered": false
+        },
+        {
+          "id": "q2-5",
+          "question": "This is the largest organ in the human body",
+          "answer": "What is the skin?",
+          "value": 1000,
+          "answered": false
+        }
+      ]
+    },
+    {
+      "id": "cat3",
+      "name": "Pop Culture",
+      "questions": [
+        {
+          "id": "q3-1",
+          "question": "This streaming service created the show 'Stranger Things'",
+          "answer": "What is Netflix?",
+          "value": 200,
+          "answered": false
+        },
+        {
+          "id": "q3-2",
+          "question": "This artist released the album 'Folklore' in 2020",
+          "answer": "Who is Taylor Swift?",
+          "value": 400,
+          "answered": false
+        },
+        {
+          "id": "q3-3",
+          "question": "This movie won the Academy Award for Best Picture in 2020",
+          "answer": "What is Parasite?",
+          "value": 600,
+          "answered": false
+        },
+        {
+          "id": "q3-4",
+          "question": "This social media platform was acquired by Elon Musk in 2022",
+          "answer": "What is Twitter (now X)?",
+          "value": 800,
+          "answered": false
+        },
+        {
+          "id": "q3-5",
+          "question": "This video game features a character named Link",
+          "answer": "What is The Legend of Zelda?",
+          "value": 1000,
+          "answered": false
+        }
+      ]
+    },
+    {
+      "id": "cat4",
+      "name": "Geography",
+      "questions": [
+        {
+          "id": "q4-1",
+          "question": "This is the longest river in the world",
+          "answer": "What is the Nile River?",
+          "value": 200,
+          "answered": false
+        },
+        {
+          "id": "q4-2",
+          "question": "This is the smallest country in the world",
+          "answer": "What is Vatican City?",
+          "value": 400,
+          "answered": false
+        },
+        {
+          "id": "q4-3",
+          "question": "This mountain is the highest peak on Earth",
+          "answer": "What is Mount Everest?",
+          "value": 600,
+          "answered": false
+        },
+        {
+          "id": "q4-4",
+          "question": "This desert is the largest hot desert in the world",
+          "answer": "What is the Sahara Desert?",
+          "value": 800,
+          "answered": false
+        },
+        {
+          "id": "q4-5",
+          "question": "This country has the most time zones",
+          "answer": "What is France?",
+          "value": 1000,
+          "answered": false
+        }
+      ]
+    },
+    {
+      "id": "cat5",
+      "name": "Literature",
+      "questions": [
+        {
+          "id": "q5-1",
+          "question": "This author wrote '1984' and 'Animal Farm'",
+          "answer": "Who is George Orwell?",
+          "value": 200,
+          "answered": false
+        },
+        {
+          "id": "q5-2",
+          "question": "This is the first book in the 'Harry Potter' series",
+          "answer": "What is 'Harry Potter and the Philosopher's Stone'?",
+          "value": 400,
+          "answered": false
+        },
+        {
+          "id": "q5-3",
+          "question": "This novel begins with 'Call me Ishmael'",
+          "answer": "What is Moby-Dick?",
+          "value": 600,
+          "answered": false
+        },
+        {
+          "id": "q5-4",
+          "question": "This author wrote 'The Great Gatsby'",
+          "answer": "Who is F. Scott Fitzgerald?",
+          "value": 800,
+          "answered": false
+        },
+        {
+          "id": "q5-5",
+          "question": "This is the longest novel ever written",
+          "answer": "What is 'In Search of Lost Time' by Marcel Proust?",
+          "value": 1000,
+          "answered": false
+        }
+      ]
+    }
+  ]
+}
+

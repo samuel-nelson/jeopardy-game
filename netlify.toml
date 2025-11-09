@@ -1,0 +1,33 @@
+# Netlify configuration for full-stack deployment
+
+[build]
+  base = "client"
+  publish = "build"
+  command = "npm install && npm run build"
+
+# Install function dependencies
+[build.environment]
+  NODE_VERSION = "18"
+
+# Function configuration
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/questions"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables should be set in Netlify dashboard:
+# REACT_APP_PUSHER_KEY = your-pusher-key
+# REACT_APP_PUSHER_CLUSTER = us2
+# PUSHER_APP_ID = your-pusher-app-id
+# PUSHER_KEY = your-pusher-key
+# PUSHER_SECRET = your-pusher-secret
+# PUSHER_CLUSTER = us2
