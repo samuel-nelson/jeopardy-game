@@ -1,6 +1,7 @@
 // Netlify Function for question management
 const fs = require('fs');
 const path = require('path');
+const defaultQuestions = require('./defaultQuestions');
 
 // In-memory storage for custom questions (in production, use a database)
 let customQuestions = {};
@@ -8,9 +9,27 @@ let customQuestions = {};
 // Load default questions
 function loadDefaultQuestions() {
   try {
-    const defaultPath = path.join(__dirname, '../server/data/defaultQuestions.json');
-    const data = fs.readFileSync(defaultPath, 'utf-8');
-    return JSON.parse(data);
+    // First try embedded questions
+    if (defaultQuestions && defaultQuestions.categories) {
+      return defaultQuestions;
+    }
+    
+    // Fallback: Try multiple possible paths
+    const possiblePaths = [
+      path.join(__dirname, '../server/data/defaultQuestions.json'),
+      path.join(__dirname, '../../server/data/defaultQuestions.json'),
+      path.join(process.cwd(), 'server/data/defaultQuestions.json')
+    ];
+    
+    for (const defaultPath of possiblePaths) {
+      if (fs.existsSync(defaultPath)) {
+        const data = fs.readFileSync(defaultPath, 'utf-8');
+        return JSON.parse(data);
+      }
+    }
+    
+    console.error('Default questions file not found in any expected location');
+    return null;
   } catch (error) {
     console.error('Error loading default questions:', error);
     return null;
@@ -20,8 +39,25 @@ function loadDefaultQuestions() {
 // Load custom questions from file system (Netlify Functions have write access)
 function loadCustomQuestions() {
   try {
-    const customDir = path.join(__dirname, '../server/data/custom');
-    if (!fs.existsSync(customDir)) {
+    // Try multiple possible paths
+    const possibleDirs = [
+      path.join(__dirname, '../server/data/custom'),
+      path.join(__dirname, '../../server/data/custom'),
+      path.join(process.cwd(), 'server/data/custom'),
+      path.join('/tmp', 'jeopardy-custom-questions') // Fallback to /tmp for Netlify
+    ];
+    
+    let customDir = null;
+    for (const dir of possibleDirs) {
+      if (fs.existsSync(dir)) {
+        customDir = dir;
+        break;
+      }
+    }
+    
+    // If no directory exists, create one in /tmp (Netlify writable location)
+    if (!customDir) {
+      customDir = path.join('/tmp', 'jeopardy-custom-questions');
       fs.mkdirSync(customDir, { recursive: true });
       return {};
     }
@@ -48,7 +84,8 @@ function loadCustomQuestions() {
 // Save custom question set
 function saveCustomQuestionSet(questionSet) {
   try {
-    const customDir = path.join(__dirname, '../server/data/custom');
+    // Use /tmp for Netlify (writable location)
+    const customDir = path.join('/tmp', 'jeopardy-custom-questions');
     if (!fs.existsSync(customDir)) {
       fs.mkdirSync(customDir, { recursive: true });
     }
@@ -180,7 +217,7 @@ exports.handler = async (event, context) => {
 
     // DELETE /api/questions/custom/:id
     if (event.httpMethod === 'DELETE' && setId) {
-      const customDir = path.join(__dirname, '../server/data/custom');
+      const customDir = path.join('/tmp', 'jeopardy-custom-questions');
       const filePath = path.join(customDir, `${setId}.json`);
       
       if (fs.existsSync(filePath)) {

@@ -1,9 +1,9 @@
 # Netlify configuration for full-stack deployment
 
 [build]
-  base = "client"
-  publish = "build"
-  command = "npm install && npm run build"
+  base = "."
+  publish = "client/build"
+  command = "cd client && npm install && npm run build"
 
 # Install function dependencies
 [build.environment]
